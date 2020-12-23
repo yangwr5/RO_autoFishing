@@ -40,15 +40,6 @@ def compare_image_green(image1, image2):
     return similarity
 
 
-def compare_image_gray(image1, image2):
-    h1 = cv2.calcHist([image1], [0], None, [256], [0, 255])
-    h2 = cv2.calcHist([image2], [0], None, [256], [0, 255])
-    h1 = cv2.normalize(h1, h1, 0, 1, cv2.NORM_MINMAX, -1)
-    h2 = cv2.normalize(h2, h2, 0, 1, cv2.NORM_MINMAX, -1)
-    similarity = cv2.compareHist(h1, h2, 0)
-    return similarity
-
-
 def thresh_image(img):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY)
