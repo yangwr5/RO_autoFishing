@@ -1,5 +1,5 @@
 # RO AutoFishing
-Download exe files from https://drive.google.com/file/d/1tIY1iH37D2hvv-5rB96eY4fBoRKmt6Qi/view?usp=sharing
+Download exe files from https://drive.google.com/drive/folders/1tD_4r4B5vn1HlSLio-XUfmBI4UxRc1AW?usp=sharing
 1. setup the fishing position and select your bait as start_screen.png showing
 2. let the fishing button on the river (background is river)
 3. run RO_autoFishing.exe
