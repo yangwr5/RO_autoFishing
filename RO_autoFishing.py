@@ -74,7 +74,6 @@ end_times = int(end_times)
 LX, LY, RX, RY = get_fishing_size()
 time_counts = 0
 stage = 0
-right_click = 0
 while times < end_times:
     try:
         # (x1, y1, x2, y2), handle = get_window_pos("夜神模擬器")
@@ -90,18 +89,20 @@ while times < end_times:
         # cv2.imshow("2", fish_start_thresh)
         # cv2.waitKey()
         # print("start: ", value)
-        if (value <= 0.01) & (stage == 0):
+        # if (value <= 0.01) & (stage == 0):
+        if value <= 0.0045:
             pyautogui.leftClick(x=(LX + RX)/2 + noise_x, y=(LY + RY)/2 + noise_y, duration=0.20)
             print("Start FISHING")
-            stage = 1
+            # stage = 1
             time.sleep(0.5)
 
         value_green = compare_image_green(image_circle, fish_get_circle)
         # print("Similarity (for debug):", value_green)
-        if (value_green >= 0.85) & (stage == 1):
+        # if (value_green >= 0.85) & (stage == 1):
+        if value_green >= 0.85:
             pyautogui.leftClick(x=(LX + RX)/2 + noise_x, y=(LY + RY)/2 + noise_y, duration=0.05)
             print("Get FISH")
-            stage = 0
+            # stage = 0
             times = times + 1
             print("Fishing times:", times)
             time.sleep(1)
@@ -110,6 +111,8 @@ while times < end_times:
         print(e)
         time.sleep(1)
 
+    # reset right click
+    right_click = 0
     # processing time
     time.sleep(0.1)
     time_counts = time_counts + 1
